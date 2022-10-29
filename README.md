@@ -12,4 +12,4 @@ Which features you included
 ## Future Development
 
 ## Created by
-Jason Francis
+Sean Kang
