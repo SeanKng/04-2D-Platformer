@@ -1,0 +1,176 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://Player/Jumping.gd" type="Script" id=2]
+[ext_resource path="res://Player/Moving.gd" type="Script" id=3]
+[ext_resource path="res://Player/StateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Player/Coyote.gd" type="Script" id=5]
+[ext_resource path="res://Player/Idle.gd" type="Script" id=6]
+[ext_resource path="res://Player/Falling.gd" type="Script" id=7]
+[ext_resource path="res://Player/Moving_and_Jumping.gd" type="Script" id=8]
+[ext_resource path="res://Player/Player.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Adventurer.png" type="Texture" id=10]
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 100, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 150, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 200, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 250, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 300, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 111, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 50, 111, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 100, 111, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 50, 74, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 50, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 100, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 150, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 200, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 250, 37, 50, 37 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 300, 37, 50, 37 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
+"loop": false,
+"name": "Falling",
+"speed": 20.0
+}, {
+"frames": [ SubResource( 16 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 17 ) ],
+"loop": false,
+"name": "Jumping",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": true,
+"name": "Moving",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 9.5, 15 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 200, 200 )
+script = ExtResource( 9 )
+max_move = 200
+max_jump = 1000
+max_leap = 500
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 14 )
+animation = "Idle"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.5, 3 )
+shape = SubResource( 15 )
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource( 6 )
+
+[node name="Moving" type="Node" parent="StateMachine"]
+script = ExtResource( 3 )
+
+[node name="Jumping" type="Node" parent="StateMachine"]
+script = ExtResource( 2 )
+
+[node name="Moving_and_Jumping" type="Node" parent="StateMachine"]
+script = ExtResource( 8 )
+
+[node name="Falling" type="Node" parent="StateMachine"]
+script = ExtResource( 7 )
+
+[node name="Coyote" type="Node" parent="StateMachine"]
+script = ExtResource( 5 )
+
+[node name="Timer" type="Timer" parent="StateMachine/Coyote"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+limit_left = 0
+limit_right = 3760
+limit_bottom = 600
+
+[connection signal="timeout" from="StateMachine/Coyote/Timer" to="StateMachine/Coyote" method="_on_Timer_timeout"]
