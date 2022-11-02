@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var player = null
 onready var ray = $RayCast2D
-export var speed = 350
+export var speed = 160
 export var looking_speed = 25
 var line_of_sight = false
 
@@ -13,8 +13,8 @@ var points = []
 const margin = 1.5
 
 func _ready():
-	position = Vector2(2000,100)
-
+	position = Vector2(512,513)
+	
 func _physics_process(_delta):
 	var velocity = Vector2.ZERO
 	player = get_node_or_null("/root/Game/Player_Container/Player")
@@ -24,7 +24,7 @@ func _physics_process(_delta):
 		line_of_sight = false
 		if c and c.name == "Player":
 			line_of_sight = true
-		#points = get_node("/root/Game/Navigation2D").get_simple_path(get_global_position(), player.global_position, true)
+		points = get_node("/root/Game/Navigation2D").get_simple_path(get_global_position(), player.global_position, true)
 		if points.size() > 1:
 			var distance = points[1] - get_global_position()
 			var direction = distance.normalized()
@@ -35,7 +35,7 @@ func _physics_process(_delta):
 					velocity = direction*looking_speed
 			else:
 				velocity = Vector2(0, 0)
-			#move_and_slide(velocity, Vector2(0,0))
+			var _move = move_and_slide(velocity, Vector2(0,0))
 		update()
 
 func _draw():

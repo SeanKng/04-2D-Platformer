@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/QR - XXI [NCS Release].mp3-4b4d5069b0f1206239f54e3f33ce818f.mp3str"
+
+[deps]
+
+source_file="res://Assets/QR - XXI [NCS Release].mp3"
+dest_files=[ "res://.import/QR - XXI [NCS Release].mp3-4b4d5069b0f1206239f54e3f33ce818f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

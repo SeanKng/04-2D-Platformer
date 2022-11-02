@@ -6,8 +6,25 @@ var text = ""
 
 var level = 1
 
+
+func _ready():
+	pause_mode = Node.PAUSE_MODE_PROCESS
+
+func _unhandled_input(event):
+	if event.is_action_pressed("menu"):
+		var menu = get_node_or_null("/root/Game/UI/Menu")
+		if menu != null:
+			var p = get_tree().paused
+			if p:
+				menu.hide()
+				get_tree().paused = false
+			else:
+				menu.show()
+				get_tree().paused = true	
+
+
 func _process(delta):
-	if(timer_on):
+	if timer_on == true:
 		time += delta
 		
 	var secs = fmod(time, 60)
@@ -20,9 +37,6 @@ func _process(delta):
 	pass
 
 
-func _ready():
-	pass
-	
 
 	
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Dryskill & Max Brhon - War Machine [NCS Release].mp3-924fdbc744a971483c00dd4b6be5a35e.mp3str"
+
+[deps]
+
+source_file="res://Assets/Dryskill & Max Brhon - War Machine [NCS Release].mp3"
+dest_files=[ "res://.import/Dryskill & Max Brhon - War Machine [NCS Release].mp3-924fdbc744a971483c00dd4b6be5a35e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
