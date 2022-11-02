@@ -1,4 +1,4 @@
-# Platformer
+# 2D-Platformer
 
 Project #4 for ML_MSCH_C220 at Indiana University, created October 13th, 2022
 
