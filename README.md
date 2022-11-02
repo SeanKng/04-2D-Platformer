@@ -1,27 +1,20 @@
-# Project Name
+# Platformer
 
-Context and date
+Project #4 for ML_MSCH_C220 at Indiana University, created October 13th, 2022
 
-Description
+A simple 2D Platformer game
 
 ## Implementation
-Which features you included
+I include enemies(bat, turret), BGM, Character motions.
+
+Also include stop-watcht that can track how fast you end this game.
+
+Created using [Godot 3.5](https://godotengine.org/download)
 
 ## References
 
-* Paddle, Brick [Kenny](https://kenney.nl/assets/space-shooter-redux)
+* tile, background [Kenny](https://kenney.nl/assets/platformer-art-pixel-redux)
 
-* Sound Efects [Audacity 3.2](https://www.audacityteam.org/)
-
-* [Orbitron Typeface](https://www.theleagueofmoveabletype.com/orbitron)
-
-* Shaders
-  *
-  
-  * 
-  
-  * 
-  
 * Level1 BGM
 
   * Song: QR - XXI [NCS Release]
@@ -36,10 +29,8 @@ Watch: http://youtu.be/gR2irrU9Xeo
   Free Download/Stream: http://ncs.io/WarMachine 
   Watch: http://youtu.be/
 
-
-
-
 ## Future Development
+None
 
 ## Created by
 Sean Kang
