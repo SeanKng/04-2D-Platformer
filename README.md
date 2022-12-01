@@ -6,6 +6,7 @@ A simple 2D Platformer game
 
 ## Implementation
 I include enemies(bat, turret), BGM, Character motions.
+
 Also include stop-watcht that can track how fast you end this game.
 
 Created using [Godot 3.5](https://godotengine.org/download)
